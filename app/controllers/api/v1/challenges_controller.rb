@@ -41,11 +41,18 @@ class Api::V1::ChallengesController < ApplicationController
   def destroy
     # Delete single challenge
     if @challenge.destroy
+      render json: { message: "Challenge destroied!", data: @challenge }
+    else
+      render json: { message: "Challenge not destroied!", data: @challenge.errors }
+    end
   end
 
   private
   def set_challenge
-    @challenge = Challenge.find(params[:id])
+      @challenge = Challenge.find_by(id: params[:id])
+      if @challenge.nil?
+        render json: { message: "Challenge not found!" }, status: 404
+      end
   end
 
   def challenge_params
