@@ -46,3 +46,6 @@ group :development, :test do
 end
 
 gem "devise", "~> 4.9"
+gem "rack-cors"
+gem "devise-jwt"
+gem "jsonapi-serializer"
