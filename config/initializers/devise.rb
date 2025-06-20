@@ -316,7 +316,7 @@ Devise.setup do |config|
 
     jwt.dispatch_requests = [ [ "POST", %r{^/users/sign_in$} ], [ "POST", %r{^/users$} ] ]
 
-    jwt.revocation_requests = [ [ "DELETE", %r{^/users/sign_out$} ], [ "DELETE", %r{^/users$} ] ]
+    jwt.revocation_requests = [ [ "DELETE", %r{^/users/sign_out$} ] ]
 
     # define o tempo de expiração do token
     jwt.expiration_time = 30.minutes.to_i
